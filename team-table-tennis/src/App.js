@@ -1,15 +1,10 @@
-import React, { Component } from "react";
-import { render } from "react-dom";
-import "./App.css";
-import Leaderboard from "../src/Leader-board";
-
+import React from "react";
+import "./components/Styles.css";
 function App() {
-  render() {
-    return (
-      <div className="App">
-          <Leaderboard />
-      </div>
-    );
-    };
+  return (
+    <div className="App" id="main">
+      <h1>Table Tennis Rankings</h1>
+    </div>
+  );
 }
 export default App;
