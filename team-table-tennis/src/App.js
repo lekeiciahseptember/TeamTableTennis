@@ -1,6 +1,7 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
 import "./App.css";
+
 export default function App() {
   return (
     <div className="App" id="main">
@@ -16,7 +17,7 @@ export default function App() {
 
 function Leaderboard() {
   return (
-    <Table striped="columns" border="5px" align="center">
+    <Table striped="columns" border="5px" align="center" hover>
       <thead>
         <tr>
           <th>#</th>
