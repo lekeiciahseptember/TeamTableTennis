@@ -21,9 +21,8 @@ function Leaderboard() {
       <thead>
         <tr>
           <th>#</th>
-          <th>Winner Name</th>
+          <th>Name</th>
           <th>Score</th>
-          <th>Wins</th>
         </tr>
       </thead>
       <tbody>
