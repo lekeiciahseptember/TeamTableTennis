@@ -1,12 +1,12 @@
 import React from "react";
-import { Table } from "react-bootstrap";
+import Table from "react-bootstrap/Table";
 import "./App.css";
 export default function App() {
   return (
     <div className="App" id="main">
       <h1>Table Tennis Rankings</h1>
-      <div className="board">
-        <div className="leaderboard">
+      <div>
+        <div className="table">
           <Leaderboard />
         </div>
       </div>
@@ -16,7 +16,7 @@ export default function App() {
 
 function Leaderboard() {
   return (
-    <Table>
+    <Table striped="columns" border="5px" align="center">
       <thead>
         <tr>
           <th>#</th>
