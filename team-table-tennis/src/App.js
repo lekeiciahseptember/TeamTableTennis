@@ -31,7 +31,7 @@ export default function App() {
       name: "Jarrod",
       score: "11",
       wins: 2,
-      losses: 0,
+      losses: 1,
     },
   ];
   const columnDefinitions = [
