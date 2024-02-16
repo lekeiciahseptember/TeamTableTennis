@@ -23,7 +23,7 @@ export default function App() {
       name: "Sivuyile",
       score: 5,
       wins: 0,
-      losses: 0,
+      losses: 1,
     },
     {
       id: 2,
