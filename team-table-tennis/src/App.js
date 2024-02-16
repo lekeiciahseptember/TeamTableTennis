@@ -104,7 +104,7 @@ export default function App() {
       empty={
         <Box margin={{ vertical: "xs" }} textAlign="center" color="inherit">
           <SpaceBetween size="m">
-            <b>No resources</b>
+            <b>No players by that name</b>
             <Button>Create resource</Button>
           </SpaceBetween>
         </Box>
@@ -123,44 +123,6 @@ export default function App() {
       }
       pagination={
         <Pagination {...paginationProps} currentPageIndex={1} pagesCount={2} />
-      }
-      preferences={
-        <CollectionPreferences
-          title="Preferences"
-          confirmLabel="Confirm"
-          cancelLabel="Cancel"
-          preferences={{
-            pageSize: 10,
-            contentDisplay: [
-              { id: "variable", visible: true },
-              { id: "value", visible: true },
-              { id: "type", visible: true },
-              { id: "description", visible: true },
-            ],
-          }}
-          pageSizePreference={{
-            title: "Page size",
-            options: [
-              { value: 10, label: "10 resources" },
-              { value: 20, label: "20 resources" },
-            ],
-          }}
-          wrapLinesPreference={{}}
-          stripedRowsPreference={{}}
-          contentDensityPreference={{}}
-          contentDisplayPreference={{
-            options: [
-              {
-                id: "name",
-                label: "Name",
-                alwaysVisible: true,
-              },
-              { id: "score", label: "Score" },
-              { id: "wins", label: "Wins" },
-              { id: "losses", label: "Losses" },
-            ],
-          }}
-        />
       }
     />
   );
