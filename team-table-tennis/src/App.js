@@ -6,7 +6,6 @@ import Button from "@cloudscape-design/components/button";
 import TextFilter from "@cloudscape-design/components/text-filter";
 import Header from "@cloudscape-design/components/header";
 import Pagination from "@cloudscape-design/components/pagination";
-import CollectionPreferences from "@cloudscape-design/components/collection-preferences";
 import { useCollection } from "@cloudscape-design/collection-hooks";
 
 export default function App() {
