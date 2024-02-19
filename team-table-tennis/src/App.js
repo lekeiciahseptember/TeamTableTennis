@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import Table from "@cloudscape-design/components/table";
 import Box from "@cloudscape-design/components/box";
 import SpaceBetween from "@cloudscape-design/components/space-between";
@@ -7,32 +7,29 @@ import TextFilter from "@cloudscape-design/components/text-filter";
 import Header from "@cloudscape-design/components/header";
 import Pagination from "@cloudscape-design/components/pagination";
 import { useCollection } from "@cloudscape-design/collection-hooks";
+import { getPlayers } from "./TableComponents/getPlayers";
 
 export default function App() {
-  const [selectedItems, setSelectedItems] = React.useState([{}]);
-  const players = [
-    {
-      id: 0,
-      name: "Liam",
-      score: 11,
-      wins: 1,
-      losses: 1,
-    },
-    {
-      id: 1,
-      name: "Sivuyile",
-      score: 5,
-      wins: 0,
-      losses: 1,
-    },
-    {
-      id: 2,
-      name: "Jarrod",
-      score: "11",
-      wins: 2,
-      losses: 1,
-    },
-  ];
+  const [players, setPlayers] = useState([]);
+
+  useEffect(() => {
+    const fetchPlayers = async () => {
+      try {
+        let res = await getPlayers();
+        console.log("Fetched players:", res);
+        setPlayers(res);
+      } catch (error) {
+        console.error("Error fetching players:", error);
+      }
+    };
+
+    fetchPlayers();
+  }, []);
+
+  console.log(players);
+
+  const [selectedItems, setSelectedItems] = React.useState([]);
+
   const columnDefinitions = [
     {
       id: "name",
@@ -42,9 +39,9 @@ export default function App() {
       isRowHeader: true,
     },
     {
-      id: "score",
-      header: "Score",
-      cell: (item) => item.score,
+      id: "points",
+      header: "Points",
+      cell: (item) => item.points,
       sortingField: "alt",
     },
     {
@@ -58,24 +55,20 @@ export default function App() {
       cell: (item) => item.losses,
     },
   ];
-  const {
-    items,
-    actions,
-    filteredItemsCount,
-    collectionProps,
-    filterProps,
-    paginationProps,
-  } = useCollection(players, {
-    filtering: {
-      empty: "No players at the moment.",
-      noMatch: (
-        <Button onClick={() => actions.setFiltering("")}>Clear Filter</Button>
-      ),
-    },
-    pagination: { pageSize: players.length },
-    sorting: { defaultState: { sortingColumn: columnDefinitions[0] } },
-    selection: {},
-  });
+
+  const { items, actions, collectionProps, filterProps, paginationProps } =
+    useCollection(players, {
+      filtering: {
+        empty: "No players at the moment.",
+        noMatch: (
+          <Button onClick={() => actions.setFiltering("")}>Clear Filter</Button>
+        ),
+      },
+      pagination: { pageSize: players.length },
+      sorting: { defaultState: { sortingColumn: columnDefinitions[0] } },
+      selection: {},
+    });
+
   return (
     <Table
       {...collectionProps}
@@ -92,7 +85,7 @@ export default function App() {
       columnDefinitions={columnDefinitions}
       columnDisplay={[
         { id: "name", visible: true },
-        { id: "score", visible: true },
+        { id: "points", visible: true },
         { id: "wins", visible: true },
         { id: "losses", visible: true },
       ]}
@@ -114,7 +107,7 @@ export default function App() {
       header={
         <Header
           counter={
-            selectedItems.length ? "(" + selectedItems.length + "/10)" : "(10)"
+            selectedItems.length ? `(${selectedItems.length}/10)` : "(10)"
           }
         >
           Table Tennis Leaderboard

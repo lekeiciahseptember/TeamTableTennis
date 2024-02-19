@@ -28,7 +28,7 @@ table {
 th,
 td {
   padding: 15px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgb(0, 0, 0);
   color: #fff;
 }
 th {
