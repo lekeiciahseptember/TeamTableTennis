@@ -7,7 +7,6 @@ import TextFilter from "@cloudscape-design/components/text-filter";
 import Header from "@cloudscape-design/components/header";
 import Pagination from "@cloudscape-design/components/pagination";
 import { useCollection } from "@cloudscape-design/collection-hooks";
-import { getPlayers } from "./TableComponents/getPlayers";
 
 export default function App() {
   const [players, setPlayers] = useState([]);
@@ -15,9 +14,10 @@ export default function App() {
   useEffect(() => {
     const fetchPlayers = async () => {
       try {
-        let res = await getPlayers();
-        console.log("Fetched players:", res);
-        setPlayers(res);
+        let res = await fetch("http://localhost:5000/api");
+        let data = await res.json();
+        console.log("Fetched players:", data);
+        setPlayers(data);
       } catch (error) {
         console.error("Error fetching players:", error);
       }
