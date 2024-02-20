@@ -50,7 +50,7 @@ export default function App() {
       cell: (item) => item.wins,
     },
     {
-      id: "losses",
+      id: "loses",
       header: "Losses",
       cell: (item) => item.losses,
     },
