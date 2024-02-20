@@ -51,8 +51,8 @@ export default function App() {
     },
     {
       id: "loses",
-      header: "Losses",
-      cell: (item) => item.losses,
+      header: "Loses",
+      cell: (item) => item.loses,
     },
   ];
 
@@ -87,7 +87,7 @@ export default function App() {
         { id: "name", visible: true },
         { id: "points", visible: true },
         { id: "wins", visible: true },
-        { id: "losses", visible: true },
+        { id: "loses", visible: true },
       ]}
       items={items}
       loadingText="Loading resources"

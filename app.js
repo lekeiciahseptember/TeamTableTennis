@@ -67,14 +67,30 @@ app.put("/put", (req, res) => {
   //the changes are done via accessing the body
   const name = req.body.name;
   const newPoints = req.body.newPoints;
+  const loses = req.body.newLoses;
+  const wins = req.body.newWins;
   const arr = array();
   const i = arr.findIndex((item) => item.name === name);
+  const ii = arr.findIndex((item) => item.wins === wins);
+  const iii = arr.findIndex((item) => item.loses === loses);
   //if index of current name is found, then it is replaced with the updated one
   if (i > -1) {
-    //access the title property directly
+    //access the point property directly
     arr[i].points = newPoints;
     fs.writeFileSync("player_data.json", JSON.stringify(arr, null, 2));
-    res.send("Player updated");
+    res.send("Title updated");
+  }
+
+  if (ii > -1) {
+    arr[ii].wins = newWins;
+    fs.writeFileSync("player_data.json", JSON.stringify(arr, null, 2));
+    res.send("Title updated");
+  }
+
+  if (iii > -1) {
+    arr[iii].loses = newLoses;
+    fs.writeFileSync("player_data.json", JSON.stringify(arr, null, 2));
+    res.send("Title updated");
   }
 });
 

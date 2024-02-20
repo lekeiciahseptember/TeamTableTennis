@@ -8,5 +8,12 @@
     "id": 2,
     "name": "Cole",
     "points": 5
+  },
+  {
+    "id": 3,
+    "name": "Jarrod",
+    "points": 6,
+    "wins": 3,
+    "loses": 1
   }
 ]
