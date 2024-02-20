@@ -62,19 +62,19 @@ app.delete("/delete/:id", (req, res) => {
   }
 });
 
-//put which is used to update either the title or description
+//put which is used to update either the name or points
 app.put("/put", (req, res) => {
   //the changes are done via accessing the body
   const name = req.body.name;
   const newPoints = req.body.newPoints;
   const arr = array();
   const i = arr.findIndex((item) => item.name === name);
-  //if index of current title is found, then it is replaced with the updated one
+  //if index of current name is found, then it is replaced with the updated one
   if (i > -1) {
     //access the title property directly
     arr[i].points = newPoints;
     fs.writeFileSync("player_data.json", JSON.stringify(arr, null, 2));
-    res.send("Title updated");
+    res.send("Player updated");
   }
 });
 
