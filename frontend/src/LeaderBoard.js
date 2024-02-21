@@ -8,7 +8,7 @@ import Header from "@cloudscape-design/components/header";
 import Pagination from "@cloudscape-design/components/pagination";
 import { useCollection } from "@cloudscape-design/collection-hooks";
 
-export default function App() {
+export default function Leaderboard() {
   const [players, setPlayers] = useState([]);
 
   useEffect(() => {
