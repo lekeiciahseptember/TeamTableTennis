@@ -7,9 +7,14 @@ import TextFilter from "@cloudscape-design/components/text-filter";
 import Header from "@cloudscape-design/components/header";
 import Pagination from "@cloudscape-design/components/pagination";
 import { useCollection } from "@cloudscape-design/collection-hooks";
+import Addplayermodal from "./addplayermodal"
+import ApiFetch from "./APIFetch";
 
 export default function Leaderboard() {
   const [players, setPlayers] = useState([]);
+  const [modalVis, setModalVis] = useState(false)
+  
+  
 
   useEffect(() => {
     const fetchPlayers = async () => {
@@ -97,7 +102,9 @@ export default function Leaderboard() {
         <Box margin={{ vertical: "xs" }} textAlign="center" color="inherit">
           <SpaceBetween size="m">
             <b>No players by that name</b>
-            <Button>Create resource</Button>
+            <Button onClick={() => setModalVis(true)}>Add Player</Button>
+            {modalVis && 
+          <Addplayermodal closeModal={() => setModalVis(false)} modalVis={modalVis}/> }      
           </SpaceBetween>
         </Box>
       }

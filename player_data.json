@@ -15,5 +15,38 @@
     "points": 6,
     "wins": 3,
     "loses": 1
+  },
+  {
+    "name": {
+      "inputName": "Ethan"
+    },
+    "points": {
+      "inputPoints": "7"
+    },
+    "wins": {
+      "inputWins": "3"
+    }
+  },
+  {
+    "name": {
+      "name": "sam"
+    },
+    "points": {
+      "points": "100"
+    },
+    "wins": {
+      "wins": "1"
+    }
+  },
+  {
+    "name": {
+      "name": "loventia"
+    },
+    "points": {
+      "points": "100"
+    },
+    "wins": {
+      "wins": "123"
+    }
   }
 ]
