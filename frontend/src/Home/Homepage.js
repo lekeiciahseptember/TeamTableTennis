@@ -2,7 +2,7 @@ import Drawers from './Homepage_components/Drawer';
 import AppBar from './Homepage_components/AppBar';
 import Button from './Homepage_components/Button';
 
-function App() {
+function Homepage() {
   return(
 
     <div className='app'>
@@ -15,4 +15,4 @@ function App() {
   )
 }
 
-export default App;
+export default Homepage;
