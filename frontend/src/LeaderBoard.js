@@ -70,52 +70,52 @@ export default function Leaderboard() {
     });
 
   return (
-    <Table
-      {...collectionProps}
-      onSelectionChange={({ detail }) => setSelectedItems(detail.selectedItems)}
-      selectedItems={selectedItems}
-      ariaLabels={{
-        selectionGroupLabel: "Items selection",
-        allItemsSelectionLabel: ({ selectedItems }) =>
-          `${selectedItems.length} ${
-            selectedItems.length === 1 ? "item" : "items"
-          } selected`,
-        itemSelectionLabel: ({ selectedItems }, item) => item.name,
-      }}
-      columnDefinitions={columnDefinitions}
-      columnDisplay={[
-        { id: "name", visible: true },
-        { id: "points", visible: true },
-        { id: "wins", visible: true },
-        { id: "loses", visible: true },
-      ]}
-      items={items}
-      loadingText="Loading resources"
-      selectionType="multi"
-      trackBy="name"
-      empty={
-        <Box margin={{ vertical: "xs" }} textAlign="center" color="inherit">
-          <SpaceBetween size="m">
-            <b>No players by that name</b>
-            <Button>Create resource</Button>
-          </SpaceBetween>
-        </Box>
-      }
-      filter={
-        <TextFilter {...filterProps} filteringPlaceholder="Find resources" />
-      }
-      header={
-        <Header
-          counter={
-            selectedItems.length ? `(${selectedItems.length}/10)` : "(10)"
-          }
-        >
-          Table Tennis Leaderboard
-        </Header>
-      }
-      pagination={
-        <Pagination {...paginationProps} currentPageIndex={1} pagesCount={2} />
-      }
-    />
+      <Table
+        {...collectionProps}
+        onSelectionChange={({ detail }) => setSelectedItems(detail.selectedItems)}
+        selectedItems={selectedItems}
+        ariaLabels={{
+          selectionGroupLabel: "Items selection",
+          allItemsSelectionLabel: ({ selectedItems }) =>
+            `${selectedItems.length} ${
+              selectedItems.length === 1 ? "item" : "items"
+            } selected`,
+          itemSelectionLabel: ({ selectedItems }, item) => item.name,
+        }}
+        columnDefinitions={columnDefinitions}
+        columnDisplay={[
+          { id: "name", visible: true },
+          { id: "points", visible: true },
+          { id: "wins", visible: true },
+          { id: "loses", visible: true },
+        ]}
+        items={items}
+        loadingText="Loading resources"
+        selectionType="multi"
+        trackBy="name"
+        empty={
+          <Box margin={{ vertical: "xs" }} textAlign="center" color="inherit">
+            <SpaceBetween size="m">
+              <b>No players by that name</b>
+              <Button>Create resource</Button>
+            </SpaceBetween>
+          </Box>
+        }
+        filter={
+          <TextFilter {...filterProps} filteringPlaceholder="Find resources" />
+        }
+        header={
+          <Header
+            counter={
+              selectedItems.length ? `(${selectedItems.length}/10)` : "(10)"
+            }
+          >
+            Table Tennis Leaderboard
+          </Header>
+        }
+        pagination={
+          <Pagination {...paginationProps} currentPageIndex={1} pagesCount={2} />
+        }
+      />
   );
 }

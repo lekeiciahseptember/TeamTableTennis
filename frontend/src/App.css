@@ -24,6 +24,7 @@ table {
   border-collapse: collapse;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background-image: url('../src/Home/Homepage_components/images/_83c16536-2bba-467f-bd26-2b3d2572347a.jpeg');
 }
 th,
 td {
@@ -40,6 +41,16 @@ thead th {
 tbody tr:hover {
   background-color: rgba(255, 255, 255, 0.3);
 }
+
+#idx {
+  background-image: url('/frontend/src/Home/Homepage_components/images/_83c16536-2bba-467f-bd26-2b3d2572347a.jpeg');
+  padding-bottom: 1000px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 15px;
+  
+}
+
 tbody td {
   position: relative;
 }
@@ -50,6 +61,6 @@ tbody td:hover:before {
   right: 0;
   top: -9999px;
   bottom: -9999px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 247, 247, 0.2);
   z-index: -1;
 }
