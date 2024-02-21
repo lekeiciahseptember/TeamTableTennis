@@ -7,10 +7,15 @@ import TextFilter from "@cloudscape-design/components/text-filter";
 import Header from "@cloudscape-design/components/header";
 import Pagination from "@cloudscape-design/components/pagination";
 import { useCollection } from "@cloudscape-design/collection-hooks";
+import { Route, Routes} from "react-router-dom";
+import { Link } from "react-router-dom";
+import Layout from './scoresheet/layout';
+
+
 
 export default function App() {
   const [players, setPlayers] = useState([]);
-
+  
   useEffect(() => {
     const fetchPlayers = async () => {
       try {
@@ -69,8 +74,10 @@ export default function App() {
       selection: {},
     });
 
+
   return (
-    <Table
+    <div>
+    {/* <Table
       {...collectionProps}
       onSelectionChange={({ detail }) => setSelectedItems(detail.selectedItems)}
       selectedItems={selectedItems}
@@ -116,6 +123,10 @@ export default function App() {
       pagination={
         <Pagination {...paginationProps} currentPageIndex={1} pagesCount={2} />
       }
-    />
+    /> */}
+   
+      <Layout />
+</div>
+    
   );
 }
