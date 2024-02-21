@@ -1,25 +1,25 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
+import { Button } from '@cloudscape-design/components';
 import './App.css';
+import Addplayermodal from './addplayermodal';
+import { useState } from 'react';
+
 
 function App() {
+  const [modalVis, setModalVis] = useState(false)
+
+
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <Button onClick={() => setModalVis(true)}>Add Player</Button>
+    {modalVis && 
+    <Addplayermodal closeModal={() => setModalVis(false)} modalVis={modalVis}/> }      
     </div>
-  );
+
+
+  )
 }
+ 
 
 export default App;
