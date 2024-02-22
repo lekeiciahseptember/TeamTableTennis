@@ -75,6 +75,12 @@ export default function Leaderboard() {
     });
 
   return (
+    <div>
+      <br/><br/><br/>
+    <Button onClick={() => setModalVis(true)}>Add Player</Button>
+    {modalVis && 
+    <Addplayermodal closeModal={() => setModalVis(false)} modalVis={modalVis}/> } 
+    <br/><br/><br/>
     <Table
       {...collectionProps}
       onSelectionChange={({ detail }) => setSelectedItems(detail.selectedItems)}
@@ -98,16 +104,16 @@ export default function Leaderboard() {
       loadingText="Loading resources"
       selectionType="multi"
       trackBy="name"
-      empty={
-        <Box margin={{ vertical: "xs" }} textAlign="center" color="inherit">
-          <SpaceBetween size="m">
-            <b>No players by that name</b>
-            <Button onClick={() => setModalVis(true)}>Add Player</Button>
-            {modalVis && 
-          <Addplayermodal closeModal={() => setModalVis(false)} modalVis={modalVis}/> }      
-          </SpaceBetween>
-        </Box>
-      }
+      // empty={
+      //   <Box margin={{ vertical: "xs" }} textAlign="center" color="inherit">
+      //     <SpaceBetween size="m">
+      //       <b>No players by that name</b>
+      //       <Button onClick={() => setModalVis(true)}>Add Player</Button>
+      //       {modalVis && 
+      //     <Addplayermodal closeModal={() => setModalVis(false)} modalVis={modalVis}/> }      
+      //     </SpaceBetween>
+      //   </Box>
+      // }
       filter={
         <TextFilter {...filterProps} filteringPlaceholder="Find resources" />
       }
@@ -123,6 +129,8 @@ export default function Leaderboard() {
       pagination={
         <Pagination {...paginationProps} currentPageIndex={1} pagesCount={2} />
       }
-    />
+    />      
+    </div>
+
   );
 }

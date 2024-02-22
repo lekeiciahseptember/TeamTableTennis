@@ -17,36 +17,26 @@
     "loses": 1
   },
   {
-    "name": {
-      "inputName": "Ethan"
-    },
-    "points": {
-      "inputPoints": "7"
-    },
-    "wins": {
-      "inputWins": "3"
-    }
+    "name": "test",
+    "points": 3,
+    "wins": 3
   },
   {
-    "name": {
-      "name": "sam"
-    },
-    "points": {
-      "points": "100"
-    },
-    "wins": {
-      "wins": "1"
-    }
+    "name": "mike",
+    "points": "2",
+    "wins": "3",
+    "loses": "4"
   },
   {
-    "name": {
-      "name": "loventia"
-    },
-    "points": {
-      "points": "100"
-    },
-    "wins": {
-      "wins": "123"
-    }
+    "name": "Sam",
+    "points": "4",
+    "wins": "2",
+    "loses": "1"
+  },
+  {
+    "name": "Kurt",
+    "points": "3",
+    "wins": "6",
+    "loses": "2"
   }
 ]

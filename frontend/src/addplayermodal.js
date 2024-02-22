@@ -11,11 +11,11 @@ import FormField from "@cloudscape-design/components/form-field";
 
 export default ({closeModal, modalVis}) => {
 
-const [visible,setVisible]= React.useState(false);
-const [name, setInputName]= React.useState("");
-const [points, setInputPoints]= React.useState("");
-const [wins, setInputWins]= React.useState("");
-const [losses, setInputLosses]= React.useState("");
+const [visible,setVisible]= useState(false);
+const [name, setInputName]= useState("");
+const [points, setInputPoints]= useState("");
+const [wins, setInputWins]= useState("");
+const [losses, setInputLosses]= useState("");
 
 const handleAddPlayerClick = () => {
   setVisible(true);
@@ -24,10 +24,10 @@ const handleAddPlayerClick = () => {
 const addPlayer = async () => {
   try {
     const response = await ApiFetch('http://localhost:5000/post', "POST", {
-      "name": {name},
-      "points": {points},
-      "wins": {wins},
-      "losses": {losses}
+      "name": name,
+      "points": points,
+      "wins": wins,
+      "loses": losses
 
     });
 
@@ -59,7 +59,9 @@ const addPlayer = async () => {
 
 
   return (
-   <Modal
+    <div>
+
+<Modal
       onDismiss={() => closeModal()}
       visible={modalVis}
       footer={
@@ -113,14 +115,9 @@ const addPlayer = async () => {
         }
       />
     </FormField>
-    
-  
-    
-    
- 
-    
-
 </Modal>
+    </div>
+   
  
   );
 }
