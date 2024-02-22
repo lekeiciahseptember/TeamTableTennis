@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Autosuggest from "@cloudscape-design/components/autosuggest";
+import ApiFetch from '../APIFetch';
 
 function Scoreboard() {
     const [leaderboard, setLeaderboard] = useState([]);
@@ -9,7 +10,7 @@ function Scoreboard() {
     const [loserScore, setLoserScore] = useState('');
     const [matchDate, setMatchDate] = useState('');
     const [value, setValue] = useState("");
-
+    const [players, setPlayers] = useState([]);
 
     useEffect(() => {
         fetchLeaderboard();
@@ -26,63 +27,63 @@ function Scoreboard() {
             });
     };
 
-    const handleSubmit = event => {
-        event.preventDefault();
-        const matchData = {
-            winner: winnerName,
-            loser: loserName,
-            winnerScore: parseInt(winnerScore, 10),
-            loserScore: parseInt(loserScore, 10),
-            date: matchDate
-        };
+    useEffect(() => {
+        const getPlayers = async () => {
+            let res = await fetch('http://localhost:5000/api')
+            let data = await res.json()
+            setPlayers(data)
+        }
 
-        fetch('/recordMatch', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(matchData)
-        })
-            .then(response => response.text())
-            .then(data => {
-                console.log(data);
-                fetchLeaderboard();
+        getPlayers()
+    }, [])
+
+    console.log(players);
+
+    const arr = players.map((_, idx) => {
+        return ( 
+            {
+            value: players[idx].name
+            }
+        )
+    })
+
+    let pts 
+    let dubs
+    let loss
+    const findPoints = players.map((_, idx) => {
+        if (winnerName==players[idx].name) {
+            pts = players[idx].points; 
+            dubs = players[idx].wins; 
+        }
+
+        if (loserName == players[idx].name) {
+            loss = players[idx].loses
+        }
+    })
+
+
+
+    const handleSubmit = () => {
+        ApiFetch('http://localhost:5000/put', "PUT", { 
+            "wName": winnerName,
+            "lName": loserName,
+            "newPoints": pts + 2,
+            "newLoses": loss + 1,
+            "newWins": dubs + 1,
             })
-            .catch(error => {
-                console.error('Error:', error);
-            });
+
+
+        ApiFetch('http://localhost:5000/recordMatch', "POST", { 
+        "winner": winnerName,
+        "loser": loserName,
+        "winnerScore": winnerScore,
+        "loserScore": loserScore,
+        "date": matchDate
+        })
+        
     };
 
-
-/* 
-const [players, setPlayers] = useState('')
-
-useEffect(() => {
-    const fetchPlayers = async () {
-        let res = await fetch('url')
-        setPlayers(res)
-    }
-
-    fetchPlayers()
-}, [])
-
-console.log(players)
-
-const arr = players.map((_, idx) {
-    return ( 
-        {
-        value : {players[idx].name}
-        }
-    )
-})
-
-*/
     
-
-
-    
-
-
     return (
         <div>
             <h1></h1>
@@ -108,25 +109,15 @@ const arr = players.map((_, idx) {
                 <Autosuggest
                     onChange={({ detail }) => setWinnerName(detail.value)}                    
                     value={winnerName}
-                    options={[
-                        { value: "Blaze" },
-                        { value: "Noms" },
-                        { value: "Lunga" },
-                        { value: "Bob" }
-                    ]}
-                    placeholder="Player 1"
+                    options={arr}
+                    placeholder="Winner"
                     required={true}
             />
                 <Autosuggest
                     onChange={({ detail }) => setLoserName(detail.value)}
                     value={loserName}
-                    options={[
-                        { value: "Blaze" },
-                        { value: "Noms" },
-                        { value: "Lunga" },
-                        { value: "Bob" }
-                    ]}
-                    placeholder="Player 2"
+                    options={arr}
+                    placeholder="You suck"
                     required={true}
                 />
                 <input
