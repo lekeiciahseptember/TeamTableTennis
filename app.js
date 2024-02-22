@@ -90,7 +90,7 @@ app.put("/put", (req, res) => {
   if (iii > -1) {
     arr[iii].loses = newLoses;
     fs.writeFileSync("player_data.json", JSON.stringify(arr, null, 2));
-    res.send("Title updated");
+    res.send("Losses updated");
   }
 });
 
