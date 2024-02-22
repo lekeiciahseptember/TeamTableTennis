@@ -130,10 +130,7 @@ export default function Leaderboard() {
         <Pagination {...paginationProps} currentPageIndex={1} pagesCount={2} />
       }
 
-    />
-    
-
-    />      
+    />     
     </div>
 
   );
