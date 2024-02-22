@@ -30,11 +30,10 @@ function Drawers() {
         >
           <List>
             <ListItem button>
-              <ListItemText primary="Play" />
+              <ListItemText primary="Scoresheet" />
             </ListItem>
-            
             <ListItem button>
-              <ListItemText primary="Add player" />
+              <ListItemText primary="Foosball(coming soon)" />
             </ListItem>
             <ListItem button>
                 <ListItemText primary="Betting Section(Coming soon)" />
