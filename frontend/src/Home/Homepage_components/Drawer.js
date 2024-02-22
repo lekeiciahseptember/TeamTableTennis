@@ -4,7 +4,7 @@ import Button from './Button';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
-
+import { Link } from 'react-router-dom';
 function Drawers() {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -19,18 +19,19 @@ function Drawers() {
     setDrawerOpen(open);
   };
 
-  return (
+  return (    
     <div style={{ display:'flex', justifyContent: 'center', marginTop: 'auto'}}>
+      <br/>
       <Button color ="error" variant="contained" size="lg" onClick={toggleDrawer(true)}>GET STARTED!</Button>
       <Drawer anchor="top" open={drawerOpen} onClose={toggleDrawer(false)} sx={{ '& .MuiDrawer-paper': { BackgroundColor: 'navy'} }}>
         <div
           role="presentation"
           onClick={toggleDrawer(false)}
           onKeyDown={toggleDrawer(false)}
-        >
+          >
           <List>
             <ListItem button>
-              <ListItemText primary="Scoresheet" />
+              <Link to="/Scoreboard">Scoreboard</Link>
             </ListItem>
             <ListItem button>
               <ListItemText primary="Foosball(coming soon)" />
