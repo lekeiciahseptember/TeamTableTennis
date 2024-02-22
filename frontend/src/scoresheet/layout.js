@@ -1,5 +1,4 @@
-import React from 'react';
-// import Button from "@cloudscape-design/components/button";
+import React, { useState, useEffect} from 'react';
 import {
   AppLayout,
   BreadcrumbGroup,
@@ -16,12 +15,51 @@ import Scoreboard from './Scoreboard';
 
 const LOCALE = 'en';
 
-// function notifications() {
 
-// }
+  export default function MyComponent() {
 
+    const [players, setPlayers] = useState([])
+    const [items, setItems] = React.useState([
+      {
+        type: "success",
+        dismissible: true,
+        dismissLabel: "Dismiss message",
+        onDismiss: () => setItems([]),
+        content: (
+          < >
+            This is an info flash message. It contains{" "}
+            <Link color="inverted">
+              a link to another page
+            </Link>
+            .
+          </>
+        ),
+        id: "message_1"
+      }
+    ]);
 
-export default function MyComponent() {
+    useEffect(() => {
+        const getPlayers = async () => {
+            let res = await fetch('http://localhost:5000/api')
+            let data = await res.json()
+            setPlayers(data)
+        }
+
+        getPlayers()
+    }, [])
+
+  console.log(players)
+
+  const arr = players.map((_, idx) => {
+      return ( 
+          {
+          type: 'link', text: players[idx].name, info: players[idx].points
+          }
+      )
+  })
+
+  console.log(arr)
+
 
   return (
     <I18nProvider locale={LOCALE} messages={[messages]}>
@@ -30,7 +68,6 @@ export default function MyComponent() {
           <BreadcrumbGroup
             items={[
               { text: 'Home', href: '#' },
-              { text: 'Service', href: '#' },
               { type: 'link', text: 'Tennis Table League Scoresheet' }
             ]}
           />
@@ -42,46 +79,17 @@ export default function MyComponent() {
               href: '#',
               text: 'Players',
             }}
-            items={[
-              { type: 'link', text: 'Blaze', info: 8},
-              { type: 'link', text: `Kenan`, info:5},
-              { type: 'link', text: `Nomfundo`,info:8},
-              { type: 'link', text: `Noluvuyo`,info:6},
-              { type: 'link', text: `Bob`,info:12},
-              { type: 'link', text: `Bob`,info:8},
-              { type: 'link', text: `Joshua`,info:9},
-              { type: 'link', text: `Lekeiciah`,info:0},
-              { type: 'link', text: `Ethan`,info:3},
-              { type: 'link', text: `Jarrod`,info:3},
-              { type: 'link', text: `Liam`,info:4},
-              { type: 'link', text: `Cole`,info:4},
-              { type: 'link', text: `Sivu`,info:5},
-              { type: 'link', text: `Sam`, info:2},
-              { type: 'link', text: `Sihle`,info:4},
-              { type: 'link', text: `Karin`,info:6},
-              { type: 'link', text: `Kurt`,info:2}
-            ]}
+            items={arr}
           />
         }
         notifications={
           <Flashbar
-            items={[
-              {
-                type: 'info',
-                dismissible: true,
-                content: 'Your match has been recorded!',
-                id: 'message_1',
-              },
-            ]}
+            items={items}
           />
         }
         content={
           <ContentLayout
-            header={
-              <Header variant="h1" info={<Link variant="info">Info</Link>}>
-                Page header
-              </Header>
-            }
+        
           >
             <Container
               header={
