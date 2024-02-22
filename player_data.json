@@ -15,5 +15,28 @@
     "points": 6,
     "wins": 3,
     "loses": 1
+  },
+  {
+    "name": "test",
+    "points": 3,
+    "wins": 3
+  },
+  {
+    "name": "mike",
+    "points": "2",
+    "wins": "3",
+    "loses": "4"
+  },
+  {
+    "name": "Sam",
+    "points": "4",
+    "wins": "2",
+    "loses": "1"
+  },
+  {
+    "name": "Kurt",
+    "points": "3",
+    "wins": "6",
+    "loses": "2"
   }
 ]
