@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Autosuggest from "@cloudscape-design/components/autosuggest";
 import ApiFetch from '../APIFetch';
+import { Link } from 'react-router-dom';
+import {Button } from '@cloudscape-design/components';
 
 function Scoreboard() {
     const [leaderboard, setLeaderboard] = useState([]);
@@ -9,7 +11,7 @@ function Scoreboard() {
     const [winnerScore, setWinnerScore] = useState('');
     const [loserScore, setLoserScore] = useState('');
     const [matchDate, setMatchDate] = useState('');
-    const [value, setValue] = useState("");
+    // const [value, setValue] = useState("");
     const [players, setPlayers] = useState([]);
 
     useEffect(() => {
@@ -40,7 +42,7 @@ function Scoreboard() {
     console.log(players);
 
     const arr = players.map((_, idx) => {
-        return ( 
+        return (
             {
             value: players[idx].name
             }
@@ -63,7 +65,14 @@ function Scoreboard() {
 
 
 
-    const handleSubmit = () => {
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        if (
+            !winnerName || !loserName || !winnerScore || !loserScore || !matchDate
+        ){
+            return alert="Cant Record Empty Fileds!";
+        }
         ApiFetch('http://localhost:5000/put', "PUT", { 
             "wName": winnerName,
             "lName": loserName,
@@ -86,6 +95,7 @@ function Scoreboard() {
     
     return (
         <div>
+            <Button><Link to="/">Go Home</Link></Button>
             <h1></h1>
             <div id="leaderboard">
                 <ul>
@@ -117,7 +127,7 @@ function Scoreboard() {
                     onChange={({ detail }) => setLoserName(detail.value)}
                     value={loserName}
                     options={arr}
-                    placeholder="You suck"
+                    placeholder="Loser"
                     required={true}
                 />
                 <input
@@ -140,7 +150,7 @@ function Scoreboard() {
                     onChange={e => setMatchDate(e.target.value)}
                     required={true}
                 />
-                <button type="submit">Record Match</button>
+                <Button type="submit">Record Match</Button>
             </form>
         </div>
     );
