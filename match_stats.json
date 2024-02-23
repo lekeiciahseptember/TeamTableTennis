@@ -7,31 +7,24 @@
     "date": "2024-02-14"
   },
   {
-    "winner": "",
-    "loser": "",
-    "winScore": "",
-    "loseScore": "",
-    "date": ""
+    "winner": "Cole",
+    "loser": "mike",
+    "winScore": "11",
+    "loseScore": "10",
+    "date": "2024-02-23"
   },
   {
-    "winner": "",
-    "loser": "",
-    "winScore": "",
-    "loseScore": "",
-    "date": ""
+    "winner": "Jarrod",
+    "loser": "Kurt",
+    "winScore": "11",
+    "loseScore": "9",
+    "date": "2024-02-22"
   },
   {
-    "winner": "",
-    "loser": "",
-    "winScore": "",
-    "loseScore": "",
-    "date": ""
-  },
-  {
-    "winner": "",
-    "loser": "",
-    "winScore": "",
-    "loseScore": "",
-    "date": ""
+    "winner": "Cole",
+    "loser": "Jarrod",
+    "winScore": "11",
+    "loseScore": "10",
+    "date": "2024-02-23"
   }
 ]

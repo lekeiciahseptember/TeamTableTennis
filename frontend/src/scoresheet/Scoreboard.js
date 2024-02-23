@@ -53,50 +53,50 @@ function Scoreboard() {
     let dubs
     let loss
     const findPoints = players.map((_, idx) => {
-        if (winnerName==players[idx].name) {
-            pts = players[idx].points; 
-            dubs = players[idx].wins; 
-        }
+      if (winnerName === players[idx].name) {
+        pts = players[idx].points;
+        dubs = players[idx].wins;
+      }
 
-        if (loserName == players[idx].name) {
-            loss = players[idx].loses
-        }
-    })
-
-
+      if (loserName === players[idx].name) {
+        loss = players[idx].loses;
+      }
+    });
 
     const handleSubmit = (event) => {
-        event.preventDefault();
+      event.preventDefault();
 
-        if (
-            !winnerName || !loserName || !winnerScore || !loserScore || !matchDate
-        ){
-            return alert="Cant Record Empty Fileds!";
-        }
-        ApiFetch('http://localhost:5000/put', "PUT", { 
-            "wName": winnerName,
-            "lName": loserName,
-            "newPoints": pts + 2,
-            "newLoses": loss + 1,
-            "newWins": dubs + 1,
-            })
+      if (
+        !winnerName ||
+        !loserName ||
+        !winnerScore ||
+        !loserScore ||
+        !matchDate
+      ) {
+        return alert("Cant Record Empty Fields!");
+      }
+      ApiFetch("http://localhost:5000/put", "PUT", {
+        wName: winnerName,
+        lName: loserName,
+        newPoints: pts + 2,
+        newLoses: loss + 1,
+        newWins: dubs + 1,
+      });
 
-
-        ApiFetch('http://localhost:5000/recordMatch', "POST", { 
-        "winner": winnerName,
-        "loser": loserName,
-        "winnerScore": winnerScore,
-        "loserScore": loserScore,
-        "date": matchDate
-        })
-        
+      ApiFetch("http://localhost:5000/recordMatch", "POST", {
+        winner: winnerName,
+        loser: loserName,
+        winnerScore: winnerScore,
+        loserScore: loserScore,
+        date: matchDate,
+      });
+      alert("Successfully Added Match");
     };
 
     
     return (
         <div>
             <Button><Link to="/">Go Home</Link></Button>
-            <h1></h1>
             <div id="leaderboard">
                 <ul>
                     {leaderboard.map(player => (

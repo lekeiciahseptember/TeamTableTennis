@@ -42,7 +42,7 @@ app.post("/post", (req, res) => {
   const winPoints = req.body.winPoints;
   const lossPoints = req.body.lossPoints;
   const date = req.body.date;
-  const name = [req.body.name, winPoints, lossPoints, date];
+  const name = req.body.name;
   const arr = array();
   //error handling, if the id is already in existence then that means the item is already there
   if (arr.indexOf(id) > -1) {

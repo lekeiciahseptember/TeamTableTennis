@@ -9,8 +9,8 @@
   {
     "id": 2,
     "name": "Cole",
-    "points": 0,
-    "wins": 0,
+    "points": 2,
+    "wins": 1,
     "loses": 0
   },
   {
@@ -29,7 +29,7 @@
     "name": "mike",
     "points": "2",
     "wins": "3",
-    "loses": "4"
+    "loses": "41"
   },
   {
     "name": "Sam",
@@ -41,6 +41,36 @@
     "name": "Kurt",
     "points": "3",
     "wins": "6",
-    "loses": "2"
+    "loses": "21"
+  },
+  {
+    "name": "Liandre",
+    "points": 0,
+    "wins": 0,
+    "loses": 0
+  },
+  {
+    "name": "jonzhc",
+    "points": 0,
+    "wins": 0,
+    "loses": 0
+  },
+  {
+    "name": "hanzo",
+    "points": 0,
+    "wins": 0,
+    "loses": 0
+  },
+  {
+    "name": "gan",
+    "points": 0,
+    "wins": 0,
+    "loses": 0
+  },
+  {
+    "name": "SANNN",
+    "points": 0,
+    "wins": 0,
+    "loses": 0
   }
 ]
