@@ -36,6 +36,12 @@ function Drawers() {
             <ListItem button>
               <ListItemText primary="Foosball(coming soon)" />
             </ListItem>
+             <ListItem button>
+              <ListItemText primary="Tekken(coming soon)" />
+            </ListItem>
+             <ListItem button>
+              <ListItemText primary="Mortal Kombat(coming soon)" />
+            </ListItem>
             <ListItem button>
                 <ListItemText primary="Betting Section(Coming soon)" />
             </ListItem>
