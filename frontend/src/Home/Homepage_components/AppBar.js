@@ -11,7 +11,7 @@ function AppBar(props) {
       <Toolbar>
         <Button />
         <Typography variant="h6" component="div" sx={{ flexGrow: 4 }}>
-          Welcome to TTLeague
+          Welcome to Boardz
         </Typography>
       </Toolbar>
     </MuiAppBar>
