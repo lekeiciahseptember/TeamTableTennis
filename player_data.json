@@ -16,8 +16,8 @@
   {
     "id": 3,
     "name": "Jarrod",
-    "points": 2,
-    "wins": 1,
+    "points": 0,
+    "wins": 0,
     "loses": 1
   },
   {
@@ -42,5 +42,35 @@
     "points": "3",
     "wins": "6",
     "loses": "21"
+  },
+  {
+    "name": "Liandre",
+    "points": 0,
+    "wins": 0,
+    "loses": 0
+  },
+  {
+    "name": "jonzhc",
+    "points": 0,
+    "wins": 0,
+    "loses": 0
+  },
+  {
+    "name": "hanzo",
+    "points": 0,
+    "wins": 0,
+    "loses": 0
+  },
+  {
+    "name": "gan",
+    "points": 0,
+    "wins": 0,
+    "loses": 0
+  },
+  {
+    "name": "SANNN",
+    "points": 0,
+    "wins": 0,
+    "loses": 0
   }
 ]

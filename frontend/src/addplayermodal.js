@@ -13,9 +13,9 @@ export default ({closeModal, modalVis}) => {
 
 const [visible,setVisible]= useState(false);
 const [name, setInputName]= useState("");
-const [points, setInputPoints]= useState("");
-const [wins, setInputWins]= useState("");
-const [losses, setInputLosses]= useState("");
+const [points, setInputPoints] = useState(0);
+const [wins, setInputWins] = useState(0);
+const [losses, setInputLosses] = useState(0);
 
 const handleAddPlayerClick = () => {
   setVisible(true);
@@ -23,12 +23,11 @@ const handleAddPlayerClick = () => {
 
 const addPlayer = async () => {
   try {
-    const response = await ApiFetch('http://localhost:5000/post', "POST", {
-      "name": name,
-      "points": points,
-      "wins": wins,
-      "loses": losses
-
+    const response = await ApiFetch("http://localhost:5000/post", "POST", {
+      name: name,
+      points: points,
+      wins: wins,
+      loses: losses,
     });
 
     if (response.ok) {
