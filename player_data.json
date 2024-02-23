@@ -9,15 +9,15 @@
   {
     "id": 2,
     "name": "Cole",
-    "points": 0,
-    "wins": 0,
+    "points": 2,
+    "wins": 1,
     "loses": 0
   },
   {
     "id": 3,
     "name": "Jarrod",
-    "points": 0,
-    "wins": 0,
+    "points": 2,
+    "wins": 1,
     "loses": 1
   },
   {
@@ -29,7 +29,7 @@
     "name": "mike",
     "points": "2",
     "wins": "3",
-    "loses": "4"
+    "loses": "41"
   },
   {
     "name": "Sam",
@@ -41,6 +41,6 @@
     "name": "Kurt",
     "points": "3",
     "wins": "6",
-    "loses": "2"
+    "loses": "21"
   }
 ]

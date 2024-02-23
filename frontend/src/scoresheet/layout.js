@@ -82,11 +82,11 @@ const LOCALE = 'en';
             items={arr}
           />
         }
-        notifications={
-          <Flashbar
-            items={items}
-          />
-        }
+        // notifications={
+        //   // <Flashbar
+        //   //   items={items}
+        //   // />
+        // }
         content={
           <ContentLayout
         
